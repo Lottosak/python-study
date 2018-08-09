@@ -1,5 +1,4 @@
 import json
-#from difflib import SequenceMatcher
 from difflib import get_close_matches
 
 print("Welcome to dictionary app")
@@ -7,10 +6,9 @@ print("Welcome to dictionary app")
 data = json.load(open("data.json"))        
 
 def getDefinition(word):
-
-    if word in data:
-        return data[word]
-    elif word.lower() in data:
+    if word.title() in data:
+        return data[word.title()]
+    elif word in data:
         return data[word]
     elif len(get_close_matches(word, data.keys())) > 0:
         closest = get_close_matches(word, data.keys())[0]
@@ -34,6 +32,6 @@ def nicePrint(val):
         print(val)
 
 word = input("Write word you want to find: ")
-nicePrint(getDefinition(word))
+nicePrint(getDefinition(word.lower()))
 
 
