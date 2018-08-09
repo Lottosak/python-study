@@ -7,7 +7,10 @@ print("Welcome to dictionary app")
 data = json.load(open("data.json"))        
 
 def getDefinition(word):
+
     if word in data:
+        return data[word]
+    elif word.lower() in data:
         return data[word]
     elif len(get_close_matches(word, data.keys())) > 0:
         closest = get_close_matches(word, data.keys())[0]
@@ -31,6 +34,6 @@ def nicePrint(val):
         print(val)
 
 word = input("Write word you want to find: ")
-nicePrint(getDefinition(word.lower()))
+nicePrint(getDefinition(word))
 
 
