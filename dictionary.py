@@ -10,6 +10,8 @@ def getDefinition(word):
         return data[word.title()]
     elif word in data:
         return data[word]
+    elif word.upper() in data:
+        return data[word.upper()]
     elif len(get_close_matches(word, data.keys())) > 0:
         closest = get_close_matches(word, data.keys())[0]
         flag = input("Did you mean this word %s? (Y/N)" % closest)
