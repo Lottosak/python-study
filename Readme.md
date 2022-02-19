@@ -1,0 +1,1 @@
+This repository is for app that I created for the purpose of learning python. They are open-source if somebody needs something similar.
